@@ -1,113 +1,29 @@
-import Image from 'next/image'
+"use client"
+import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Home() {
+  const poslovice = [
+    "Ако има лијека, има и вијека." ,
+     "Ако је кратак дан, дуга је година.",
+     "Ако кажеш ватра, нећеш изгорети.","Ако коза лаже, рог не лаже.","Ако смо ми браћа, нијесу нам кесе сестре.","Без алата нема заната.","Боља је срећа но памет.","Боље икад него никад.","Боље икако него никако.","Боље ишта него ништа.","Боље је знање но имање.","Већа глава, више главобоље.","Гвожђе се кује док је вруће.","Два лоша избише Милоша.","Два пута мјери, а трећи крој.","Жедан коњ воде не пробира.","За мајстором гора плаче.","Здравље је највеће богатство.","Зна црв чију стражњицу дубе.","Зрно по зрно - погача, камен по камен - палача.","И вода зубе има.","Иди мудро, не погини лудо.","Избирач није отирач.","И зидови имају уши.","Из сваког пања не може се светац истесати.","Има наук а има и одук.","И најпаметнији човек полуди од пара.","И пас леже док се ручак слеже.","И пјана врана за орла знала.","Испеци, пак реци.","И ћорава кока неко зрно нађе.","И у гори гласно не мисли.","Јака гужва, слаба служба.","Један човек не може све знати.","Једна ласта не чини прољећа.","Једна мука наука, а сто мука одука.","Једна штета сто гријеха.","Кад највише грми, најмање киша пада.","Кад нема кише и град је добар.","Кад дође мука, нема брука.","Лаж се пређе прими него истина.","Лакше је стећи него сачувати.","Најтежа је празна торба.","Након боја копљем у трње.","На муци се познају јунаци.","Небојшу најприје пси уједу.","Невоља је јача од стида.","Невоља памет дава.","Ноћ сведока нема.","Нужда закон мења.","Пара врти где бургија неће.","Пара и памети човеку никада није доста.","“Питаће те старост ди ти је прошла младост.","Свако чудо за три дана.","Свачију слушај, а своју свиђај.","С главе риба смрди.","Тешко капи на манитој глави.","Тешко кући где дима нема.","У ратара црне руке, а бијела погача.","Уста затвори, а очи отвори.","Чист рачун - дуга љубав.","Чоек се до смрти учи.","Чувај бијеле новце за црне дане.","Штедња је прво течење.","Што видиш у свету, надај се у веку.","Што дикла навикла то невјеста не одвиче.","Ако хоћеш кога да познаш, подај му власт /у руке/.","Беспослен поп и јариће крсти.","Боље је вјеровати својим очима него туђим ријечима.","Боље се једанпут зацрљенити него сто пута блијеђети.","Брз човек срећу прескаче.","Весело срце кудељу преде.","Вид'ла жаба дје се коњи кују, па и она дигла ногу.","Види туђу длаку, а свога брвна не види.","Вичан ли си рђи, не оставила те.","Жали ме жива, а немој мртва.","Здрав болесному не вјерује.","Зец у шуми, а он ражањ гради.","Кад лажеш, тако лажи да и сам мислиш да је истина.","Кад липше вук, пси му мере реп.","Кад не може ништа коњу, а оно самару.","Кад се тиква покондири.","Какав је ко на јелу онаки је и на дјелу.","Какав је ко тако и чини.","Какав човек, таква и беседа.","Ко више има више му се и хоће.","Ко захваљује не мисли враћати.","Кога су гује уједале тај се и гуштера плаши.","Кога тишти онај и вришти.","Која туга разговора нема? /Кад се човек у бризи или невољи шали.","Ко бесједи шта хоће, мора слушати шта неће.","Ко брзо суди, брзо се и каје.","Ко жали клинац, изгуби поткову.","Ко за свијетом плаче, без очију остаје.","Које псето ћути, оно пре уједе.","Ко је себи зао, како ће другом бити добар?","Колико људи толико ћуди.","Комад је у туђој руци свагда већи.","Лажа мисли да сви људи лажу.","Лакомац и лажљивац одмах се погоде.","Нашла врећа закрпу.","Нашла се вила у чем није била.","Не ваља свашта к срцу примати.","Не иде по воду ко је вредан већ ко је жедан.","Не казује баба што јој се снило, него како јој је мило.","Не лаје куца села ради, него себе ради.","Ода шта се чоек мало боји, од онога нек се врло чува.","Од зла има и горе.","Од ината нема горега заната.","Од луда попа луда и бесједа.","Од подмукла псета чувај се.","Све је боље лани.","Сит гладну не вјерује.","Слађа смоква преко плота.","Удри зло, да је горе.","Уморној ласици и реп досађује.","У невољи не треба плакати, него лијек тражити.","У пијанцу нема ни чоека ни јунака.","У свакој шали има половица збиље.","У се и у своје кљусе.","У селу мед, у кући јед.","У стиду поштење, а у страху јунаштво губи се.","Чег' се мудар стиди, тим се луд поноси.","Чега се чоек највише боји, оно ће му на главу доћи.","Чести целиви губе љубав.","Човек кад не може са собом, не може ни с ким.","Чоек се у пићу познаје.","Што је далеко од очију, далеко и од срца.","Што тријезан мисли, /то/ пијан говори."," Ако гости нису бесни, кућа није тесна.","Ако је ко луд, не буди му друг.","Ако смо браћа, нијесмо другови.","Бог је најпре себи браду створио.","Богат једе кад хоће, а сиромах кад може.","Боља је добра инокоштина но рђава задруга.","Велика дрвета дуго расту, али за час падну.","Велике рибе мале прождиру.","Галија једнога не чега.","Где је танко, ту се кида.","Глад очију нема.","Гују глади, испод гује се вади.","Договор кућу гради.","Док дијете не заплаче, мати га се не сјећа.","Док једном не смркне, другом не сване.","Дрво се на дрво наслања, а чоек на чоека.","Држ' се нова пута и стара пријатеља.","Другом на вољу, а себи невољу /учинити/.","Златна реч и гвоздена врата отвара.","Ивер од кладе далеко не паде.","Јачи тлачи.","Јачега капом а нејачега шаком.","Кад си у колу, ваља да играш.","Кад устане кука и мотика /Биће Турком по Медији мука/.","Каква власт, таква маст.","Клони се луда као и света.","Ко високо лети ниско пада.","Кога је молити није га срдити.","Ко не држи брата за брата, он ће туђина за господара.","Ко с ђаволом тикве сади о главу му се лупају.","Ко умије њему двије.","Крпеж и трпеж по свијета држе.","Моја кућица моја слободица.","Није никаква мајсторија међу добрима добар бити.","Ни прсти у руке нијесу сви једнаки.","Ни свакоме мед, ни никоме жуч.","Ни све горе посијеци, ни без дрва дома дођи.","Од зла рода нек није порода.","Од немања тврђег града нема.","Од туђега туга бије.","Пита без масти и човек без власти, не вреде ништа.","Поклони се зуби не гледају.","Покрај суха дрвета и сирово изгови.", "Уз крива човека пропадне кашто и прав.","Поштуј старијега, па ће и тебе млађи.","Пријатељ се у невољи познаје као злато у ватри.","Сиротињо, и селу си тешка, а камо ли кући у којој си.","С ким си онаки си.","Тешко другу без друга, а славују без луга!","Тешко свуда своме без својега!","Убог човек, готова лаж.","У друштву се и калуђер жени.","У кога је погача у тога и нож /па дијели како хоће/.","Умиљато јагње двије овце сиса.","Чија сила онога и царство.","Чија сила тога и правда.","Чије није било, чије л' бити неће?","Шаљива друга дружина љуби.","Шапат у папрат.","Што је свачије, то је ничије.","Што ми је с свијетом, то ми је с цвијетом.","Шупље је испод неба.",", “Боље у гроб, но бит' роб.","Вода свашта опере до црна образа.","Во се веже за рогове, а чоек за језик.","За добрим се коњем бат чује.","Зло се злим ћера.","Из ове се коже у другу не може.","Из /пре/пуна чанка није греота одсркнути.","Ја буди мајстор, ја не прљај руку.","Ја право, ја никако.","Кад се чоек шта прихвати онога нек се и држи.","Ко више себе пљује, на образ му пада.","Ко се другоме за што руга оно ће му на врат доћи.","Ко се не намучи тај се не научи.","Ко се туђему злу весели, нек се своме нада.","Ко хоће веће, изгуби /и оно/ из вреће.","Ко хоће часно, не може ласно.","Ко шта чини, све себи.","Криво сједи, а право бесједи.","Најприје скочи, па онда реци: хоп!","Наука је зла мука.","Невоља свачему чоека научи.","Није чоеку жао на мало, него на неправо.","Отето проклето.","Права мука никад не гине.","Правда држи земљу и градове.","Правда је спора али достижна.","Према губеру ваља се пружити.", 	 " Ако је правда слијепа, а оно је нада ћорава.","Ако ми је стао на пут, не може на срећу.","Док се мудри намудроваше, луди се наживоваше.","Доћи ће враг по своје.","Живот је кратак и прљав као кошуља одојчета.","Зла везиља дуге конце суче.","Зло је ново свакада.","Зло се окуси зато штоје зло.","Иде време носи бреме.","Има зло од горега.","Имадосмо - не знадосмо, изгубисмо - познадосмо.","Један се отего, други се протего.","Јуче везир, данас резил.","Кад се кола сломе, путова доста.","Како дошло онако и прошло.","Клин се клином ћера.","Ко много зна, он ништа не зна.","Ко се у бари удави, не треба му море.","Ко се у зло упрти, тешко му га до смрти.","Ко чека и дочека.","Није свака мука до вијека.","Никад два добра.","Нико не може овога свијета у свачему срећан бити."
+  ];
+
+  const [poslovica, setPoslovica] = useState("Samo dovoljno, samo na vreme i ponekad, samo zato.");
+
+  const getPoslovica = () => {
+    const randomIndex = Math.floor(Math.random() * poslovice.length);
+    setPoslovica(poslovice[randomIndex]);
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <div className='bg-white text-red-700 flex flex-col gap-3 p-10 justify-center items-left'>
+      <h1 className='text-3xl font-bold'>GENERIŠI, PA VLADAJ!</h1>
+      <button className='bg-black w-32 py-2 px-4 text-xl' onClick={getPoslovica}>
+        Generiši
+      </button>
+      <h2>Poruka dana:</h2>
+      <h1 className='text-xl font-bold'>{poslovica}</h1>
+    </div>
+  );
 }
