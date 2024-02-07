@@ -1,6 +1,10 @@
 "use client"
 import Image from 'next/image';
 import { useState } from 'react';
+import image1 from "../../public/1.png"
+import image2 from "../../public/ukras.png"
+import image3 from "../../public/3.png"
+import image4 from "../../public/4.png"
 
 export default function Home() {
   const poslovice = [
@@ -17,13 +21,21 @@ export default function Home() {
   };
 
   return (
-    <div className='bg-white text-red-700 flex flex-col gap-3 p-10 justify-center items-left'>
-      <h1 className='text-3xl font-bold'>GENERIŠI, PA VLADAJ!</h1>
-      <button className='bg-black w-32 py-2 px-4 text-xl' onClick={getPoslovica}>
-        Generiši
+    <div className='pozadina h-screen flex flex-col gap-6 justify-start items-center'>
+      <div className='justify-around items-center flex w-full' >
+        <Image src={image3} width={80} height={80} className='pl-2 pt-2' alt='asdasd'/>
+        <h1 className='font-bold text-3xl font-serif text-black'>Мудро јутро</h1>
+        <Image src={image1} width={50} height={50} alt='asdasd'/>
+      </div>
+      <Image src={image2} width={400} height={40}  className='ukras' alt='asdasd'/>
+      <h2 className='text-center text-black font-bold text-xl px-5'>Добро јутро почиње добром пословицом, зато и ви започните своје јутро онако како доликује.</h2>
+      <button className='crvena-poz w-[200px] py-2 px-7 text-xl font-serif rounded-md border-2 border-black' onClick={getPoslovica}>
+        ГЕНЕРИШИ
       </button>
-      <h2>Poruka dana:</h2>
-      <h1 className='text-xl font-bold'>{poslovica}</h1>
+      <h2 className='text-lg zelena-poz py-7 px-4 rounded-xl border-2 border-black w-[85%] text-center'>{poslovica}</h2>
+      <h2 className='text-center text-black font-bold text-xl px-3'>  Свака пословица коју генеришемо нашим посетиоцима, <br /> Није само реченица, већ путоказ и водич кроз животне стазе,<br /> Да свако јутро започну с осмехом и снагом, И да кроз дан корачају храбро и с надом.</h2>
+      <Image src={image2} width={400} height={40}  className='ukras' alt='asdasd'/>
+    
     </div>
   );
 }

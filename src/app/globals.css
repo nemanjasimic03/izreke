@@ -25,3 +25,22 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.pozadina{
+  background-image: url("../../public/4.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.crvena-poz{
+  background-color: #B14343;
+}
+.zelena-poz{
+  background-color: #5A6D4E ;
+}
+
+.ukras{
+  height: 50px;
+  width: 500px;
+  /* width: auto; */
+}
